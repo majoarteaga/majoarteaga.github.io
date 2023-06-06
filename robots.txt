@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://majoarteaga.github.io/personal/sitemap.xml
+Sitemap: https://majoarteaga.github.io/sitemap.xml
