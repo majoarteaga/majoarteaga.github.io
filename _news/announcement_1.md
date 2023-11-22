@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I'm currently visiting the BIS in Basel :switzerland: as a Senior Associate. I'm working on a project on climate change regulation and its impact on bank loan characteristics.
+I'm currently visiting the BIS in Basel :switzerland: as a Senior Associate. I'm working on a project on climate change regulation and its impact on cross-border lending.
