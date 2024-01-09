@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I'm currently visiting Columbia Business School in New York :flag_us: for the Spring semester.
+I'm currently visiting Columbia Business School in New York :us: for the Spring semester.
