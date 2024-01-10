@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Very happy that our COVID paper is forthcoming in the Journal of Financial Economics! Amazing team, I've learned so much from them.
+Very happy that our [COVID paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3560347) is forthcoming in the Journal of Financial Economics! Amazing team, I've learned so much from them.
