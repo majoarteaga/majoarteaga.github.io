@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 Hi! I am a Finance Ph.D student at Bocconi University. Previously, I worked as a financial stability researcher at Bank of Mexico. I hold a BA and MA in Economics from Center for Research and Teaching in Economics (CIDE) in Mexico City.
 
 
-See my full CV <a href="https://github.com/majoarteaga/majoarteaga.github.io/blob/master/CV_29Sep2022.pdf">here</a>.
+See my full CV <a href="https://majoarteaga.github.io/assets/pdf/CV_08012024.pdf">here</a>.
 
 
 *Research interests*: Financial Stability, Financial Intermediation, Financial Regulation.
