@@ -11,30 +11,29 @@ nav_order: 6
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Two Column Layout</title>
+<title>Research</title>
 <style>
     .container {
         display: flex;
-        flex-direction: column; /* Change to column to stack elements vertically */
-        align-items: center; /* Center horizontally */
-        text-align: center; /* Center text */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     img {
-        max-width: 100%; /* Adjust the width of the image */
-        height: auto; /* Maintain aspect ratio */
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px; /* Add margin to create space between image and text */
     }
     .text-column {
-        padding-top: 20px; /* Adjust as needed */
         text-align: justify;
+        max-width: 600px; /* Limit the width of text to improve readability */
     }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="image-column">
-        <img src="https://majoarteaga.github.io/assets/img/cai_fig.png" alt="International Climate News" style="width: 500px;"> <!-- Adjust width -->
-    </div>
+    <img src="https://majoarteaga.github.io/assets/img/cai_fig.png" alt="International Climate News" style="width: 500px;"> <!-- Adjust width -->
     <div class="text-column">
         <p><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016">International Climate News</a> (with Riccardo Colacito, Max Croce, and Biao Yang)</p>
         <p>Visit our webpage <a href="https://sites.google.com/view/internationalclimatenews/home">here</a>!</p>
