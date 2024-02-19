@@ -7,30 +7,6 @@ nav: true
 nav_order: 6
 ---
 
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research</title>
-<style>
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px; /* Add margin to create space between image and text */
-    }
-    .text-column {
-        text-align: justify;
-        max-width: 600px; /* Limit the width of text to improve readability */
-    }
-</style>
-</head>
-<body>
 
 <div class="container">
     <img src="https://majoarteaga.github.io/assets/img/cai_fig.png" alt="International Climate News" style="width: 500px;"> <!-- Adjust width -->
@@ -40,6 +16,3 @@ nav_order: 6
         <p><strong>Abstract:</strong> We develop novel high-frequency indices that measure climate attention, covering a wide range of both developed and emerging economies. This is achieved by analyzing the text of nearly 24 million tweets published by leading national newspapers on Twitter during the period from 2014 to 2022. Our findings reveal that a country experiencing more severe climate news shocks tends to see both an inflow of capital and an appreciation of its currency. These outcomes align with the expectations of a risk-sharing model in which investors price climate news shocks and engage in the trade of both consumption and investment goods.</p>
     </div>
 </div>
-
-</body>
-</html>
