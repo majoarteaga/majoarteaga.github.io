@@ -9,7 +9,7 @@ nav_order: 6
 
 <style>
 .text-column {
-    max-width: 800px; /* Adjust the width as needed */
+    max-width: 1000px; /* Adjust the width as needed */
     margin: 0 auto;
 }
 </style>
