@@ -43,3 +43,7 @@ nav_order: 6
     <p>Visit our webpage <a href="https://sites.google.com/view/when-markets-get-covid/home?authuser=0">here</a>!</p>
     <p><strong>Abstract:</strong> We quantify the exposure of major financial markets to news shocks about global contagion risk while accounting for local epidemic conditions. For a wide cross section of countries, we construct a novel dataset comprising (i) announcements related to COVID19 and (ii) high-frequency data on epidemic news diffused through Twitter (Hassan et al. 2019's methodology). We provide novel empirical evidence about financial dynamics both around epidemic announcements and at daily/intra-daily frequencies. Analysis of contagion data and social media activity about COVID19 suggest that the market price of contagion risk is significant.</p>
 </div>
+
+<div style="text-align: center;">
+    <img src="https://majoarteaga.github.io/assets/img/covid_fig.png" alt="Covid" style="width: 500px;">
+</div>
