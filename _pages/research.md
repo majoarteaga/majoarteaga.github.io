@@ -24,7 +24,7 @@ nav_order: 6
 }
 </style>
 
-Working Papers
+<h1><strong>Working Papers</strong></h1>
 
 <div class="text-column">
     <ul>
