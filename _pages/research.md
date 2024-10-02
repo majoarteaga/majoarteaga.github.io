@@ -24,7 +24,7 @@ nav_order: 6
 }
 </style>
 
-<h1><strong>Working Papers</strong></h1>
+<h2><strong>Working Papers</strong></h2>
 
 <div class="text-column">
     <ul>
@@ -36,7 +36,7 @@ nav_order: 6
 
 
 
-<h1><strong>Publications</strong></h1>
+<h2><strong>Publications</strong></h2>
 
 <div class="text-column">
     <ul>
