@@ -35,7 +35,9 @@ nav_order: 6
 </div>
 
 
-Publications
+
+<h1><strong>Publications</strong></h1>
+
 <div class="text-column">
     <ul>
         <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3560347">When the Markets Get CO.V.I.D.: COntagion, Viruses, and Information Diffusion</a> (with Max Croce, Paolo Farroni and Isabella Wolfskeil) forthcoming in the <em>Journal of Financial Economics</em></li>
