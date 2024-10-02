@@ -31,9 +31,11 @@ Working Papers
         <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016">International Climate News</a> (with Riccardo Colacito, Max Croce, and Biao Yang)</li>
     </ul>
     <p>Visit our webpage <a href="https://sites.google.com/view/internationalclimatenews/home">here</a>!</p>
-    <p><strong>Abstract:</strong> We develop novel high-frequency indices that measure climate attention, covering a wide range of both developed and emerging economies. This is achieved by analyzing the text of nearly 24 million tweets published by leading national newspapers on Twitter during the period from 2014 to 2022. Our findings reveal that a country experiencing more severe climate news shocks tends to see both an inflow of capital and an appreciation of its currency. These outcomes align with the expectations of a risk-sharing model in which investors price climate news shocks and engage in the trade of both consumption and investment goods.</p>
+    <p><strong>Abstract:</strong> We develop novel high-frequency indices that measure climate attention, covering a wide range of both developed and emerging economies. This is achieved by analyzing the text of over 23 million tweets published by leading national newspapers on Twitter during the period from 2014 to 2022. Our findings reveal that a country experiencing more severe climate news shocks tends to see both an inflow of capital and an appreciation of its currency. In addition, brown stocks in highly exposed countries experience large and persistent negative returns after a global climate news shock. These outcomes align with the predictions of a risk-sharing model in which investors price climate news shocks and trade consumption and investment goods in global markets.</p>
 </div>
 
+
+Publications
 <div class="text-column">
     <ul>
         <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3560347">When the Markets Get CO.V.I.D.: COntagion, Viruses, and Information Diffusion</a> (with Max Croce, Paolo Farroni and Isabella Wolfskeil) forthcoming in the <em>Journal of Financial Economics</em></li>
