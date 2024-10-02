@@ -24,6 +24,8 @@ nav_order: 6
 }
 </style>
 
+Working Papers
+
 <div class="text-column">
     <ul>
         <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016">International Climate News</a> (with Riccardo Colacito, Max Croce, and Biao Yang)</li>
