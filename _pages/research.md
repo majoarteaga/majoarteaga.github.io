@@ -42,7 +42,7 @@ nav_order: 6
     </ul>
     <p>Visit our webpage <a href="https://sites.google.com/view/internationalclimatenews/home">here</a>!</p>
     <p><strong>Abstract:</strong> We develop novel high-frequency indices that measure climate attention across a wide range of developed and emerging economies. By analyzing the text of over 23 million Tweets published by leading national newspapers, we find that a country experiencing more severe climate news shocks tends to see both an inflow of capital and an appreciation of its currency. In addition, brown stocks experience large and persistent negative returns after a global climate news shock if located in highly exposed countries. A risk-sharing model in which investors price climate news shocks and trade consumption and investment goods in global markets rationalizes these findings.</p>
-    <p style="margin-left: 2em;"><strong>Upcoming presentations:</strong> NBER Summer Institute: International Finance & Macroeconomics (July 2025); EFA (August 2025)</p>
+    <p style="margin-left: 2em;">📅 <strong>Upcoming presentations:</strong> NBER Summer Institute: International Finance & Macroeconomics (July 2025); EFA (August 2025)</p>
 </div>
 
 
