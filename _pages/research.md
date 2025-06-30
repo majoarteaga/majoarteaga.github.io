@@ -31,7 +31,7 @@ nav_order: 6
 <h2><strong>Working Papers</strong></h2>
 <div class="text-column">
     <ul>
-        <li><a href="" class="paper-title">The Rise of Green Banks in the U.S.</a> (Job Market Paper)</li>
+        <li><a href="" class="paper-title">The Rise of Green Banks in the U.S.</a> <em>(Job Market Paper)</em></li>
     </ul>
     <p><strong>Abstract:</strong> I examine how U.S. Green Banks (i.e.,public or mission-driven lenders that recycle capital for climate-related projects) shape the flow of green finance in the U.S. Using a newly hand-collected dataset of 39 state and local Green Banks from 2011-2024, I trace both funding sources and project-level deployment [ongoing]. A simple Stackelberg model, with a welfare maximising Green Bank that co-finances with profit-maximising lenders, highlights leverage caps and coordination frictions as key constraints.</p>
     </div>
