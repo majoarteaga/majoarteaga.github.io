@@ -6,5 +6,5 @@ related_posts: false
 ---
 
 It was great to share our paper at the <strong>NBER Summer Institute</strong> in Boston and at the <strong>EFA</strong> in Paris. Grateful to my co-authors, our discussants (Zhengyang Jiang and Yasmine Van der Straten) and everyone who joined in person and online!
-🎥 [See full NBER video here](youtube.com/watch?t=419&v=W_AGwwhRims&feature=youtu.be)
+🎥 [See full NBER video here](youtube.com/watch?t=419&v=W_AGwwhRims&feature=youtu.be).
 
