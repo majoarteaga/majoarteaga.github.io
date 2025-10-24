@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Great summer presenting our paper [International Climate News](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016) (with Ric Colacito, Max Croce, and Biao Yang) at the SED in Barcelona and the LUISS Finance Workshop in Rome. Amazing discussions and feedback!
+Great summer presenting our paper [International Climate News](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016) (with Ric Colacito, Max Croce, and Biao Yang) at the <strong>SED</strong> in Barcelona and the <strong>LUISS Finance Workshop</strong> in Rome. Amazing discussions and feedback!
