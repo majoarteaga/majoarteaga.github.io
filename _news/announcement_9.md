@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Back in Boston 🇺🇸 for the <strong>NBER Climate Finance PhD Workshop</strong>. Grateful to the organizers Caroline Flammer and Stegano Giglio for accepting my paper [The Rise of Green Banks in the U.S.](https://majoarteaga.github.io/assets/pdf/MJAG_JMP_2025.pdf). Super useful feedback!
+Back in Boston 🇺🇸 for the <strong>NBER Climate Finance PhD Workshop</strong>. Grateful to the organizers Caroline Flammer and Stefano Giglio for accepting my paper [The Rise of Green Banks in the U.S.](https://majoarteaga.github.io/assets/pdf/MJAG_JMP_2025.pdf). Super useful feedback!
