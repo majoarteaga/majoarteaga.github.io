@@ -20,6 +20,7 @@ Hi! I am a Finance Ph.D. student at Bocconi University. Previously, I worked as 
 
 See my full CV <a href="https://majoarteaga.github.io/assets/pdf/CV_MJAG.pdf">here</a>.
 
+<strong>I will be in the 2025-2026 job market!</strong>
 
 *Research interests*: Financial Intermediation, Financial Regulation, Climate Finance.
 
