@@ -5,6 +5,6 @@ inline: true
 related_posts: false
 ---
 
-It was great to share our paper at the NBER Summer Institute 2025 in Boston and at the EFA in Paris. Grateful to my co-authors Ric Colacito, Max Croce, and Biao Yang, our discussants Zhengyang Jiang and Yasmine Van der Straten, and everyone who joined in person and online!
+It was great to share our paper at the <strong>NBER Summer Institute 2025</strong> in Boston and at the <strong>EFA</strong> in Paris. Grateful to my co-authors, our discussants (Zhengyang Jiang and Yasmine Van der Straten) and everyone who joined in person and online!
 🎥 [See full NBER video here](youtube.com/watch?t=419&v=W_AGwwhRims&feature=youtu.be)
 
