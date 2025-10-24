@@ -5,7 +5,7 @@ inline: true
 related_posts: false
 ---
 
-Honored to have joined the 8th Lindau Nobel Meeting on Economic Sciences this summer and to take part in the opening ceremony 🤯. 🎥 [Full video here!](https://mediatheque.lindau-nobel.org/recordings/42669/opening-of-the-8th-lindau-nobel-meeting-in-economic-sciences)
+Honored to have joined the <strong>8th Lindau Nobel Meeting on Economic Sciences</strong> this summer and to take part in the opening ceremony 🤯. 🎥 [Full video here!](https://mediatheque.lindau-nobel.org/recordings/42669/opening-of-the-8th-lindau-nobel-meeting-in-economic-sciences)
 
 <div style="text-align: center;">
   <video width="100%" controls preload="metadata"
