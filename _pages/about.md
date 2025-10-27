@@ -24,5 +24,9 @@ Hi! I am a Ph.D. candidate in Finance at Bocconi University. Previously, I worke
 
 See my full CV <a href="https://majoarteaga.github.io/assets/pdf/CV_MJAG.pdf">here</a>.
 
+<span class="social-icons-small">
+  {% include social.html %}
+</span>
+
 <a href="mailto:maria.arteaga@phd.unibocconi.it">E-mail: maria.arteaga@phd.unibocconi.it</a>
 
