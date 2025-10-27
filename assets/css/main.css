@@ -1053,5 +1053,21 @@ d-appendix a:hover, d-appendix a.footnote-backlink:hover {
     grid-column: none;
   }
 }
+/* Medium-size social icons */
+.social-icons-medium a {
+  margin-right: 8px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.social-icons-medium i,
+.social-icons-medium svg {
+  font-size: 24px !important;
+}
+
+.social-icons-medium img {
+  width: 26px !important;
+  height: 26px !important;
+}
 
 /*# sourceMappingURL=main.css.map */
