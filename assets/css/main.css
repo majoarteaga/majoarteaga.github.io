@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*******************************************************************************
  * Variables used throughout the theme.
  * To adjust anything, simply edit the variables below and rebuild the theme.
@@ -1053,21 +1054,21 @@ d-appendix a:hover, d-appendix a.footnote-backlink:hover {
     grid-column: none;
   }
 }
-/* Medium-size social icons */
+/* Medium–large social icons (a bit bigger) */
 .social-icons-medium a {
-  margin-right: 8px !important;
+  margin-right: 10px !important;
   display: inline-block;
   vertical-align: middle;
 }
 
 .social-icons-medium i,
 .social-icons-medium svg {
-  font-size: 24px !important;
+  font-size: 28px !important; /* was 24px */
 }
 
 .social-icons-medium img {
-  width: 26px !important;
-  height: 26px !important;
+  width: 30px !important; /* was 26px */
+  height: 30px !important;
 }
 
 /*# sourceMappingURL=main.css.map */
