@@ -1054,21 +1054,27 @@ d-appendix a:hover, d-appendix a.footnote-backlink:hover {
     grid-column: none;
   }
 }
-/* Medium–large social icons (a bit bigger) */
+/* Medium–large social icons */
 .social-icons-medium a {
   margin-right: 10px !important;
   display: inline-block;
   vertical-align: middle;
 }
 
+/* Font Awesome icons */
 .social-icons-medium i,
-.social-icons-medium svg {
-  font-size: 28px !important; /* was 24px */
+.social-icons-medium .fa,
+.social-icons-medium .fab,
+.social-icons-medium .fas {
+  font-size: 28px !important; /* bigger */
+  line-height: 1 !important;
 }
 
-.social-icons-medium img {
-  width: 30px !important; /* was 26px */
-  height: 30px !important;
+/* Academicons (Google Scholar, SSRN, etc.) */
+.social-icons-medium .ai,
+.social-icons-medium .ai::before {
+  font-size: 28px !important; /* bigger */
+  line-height: 1 !important;
 }
 
 /*# sourceMappingURL=main.css.map */
