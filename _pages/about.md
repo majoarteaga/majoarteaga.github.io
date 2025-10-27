@@ -24,7 +24,7 @@ Hi! I am a Ph.D. candidate in Finance at Bocconi University. Previously, I worke
 
 See my full CV <a href="https://majoarteaga.github.io/assets/pdf/CV_MJAG.pdf">here</a>.
 
-<div class="social-icons-small">
+<div class="social-icons-medium">
   {% include social.html %}
 </div>
 
