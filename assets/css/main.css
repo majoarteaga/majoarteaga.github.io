@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*******************************************************************************
  * Variables used throughout the theme.
  * To adjust anything, simply edit the variables below and rebuild the theme.
@@ -1054,26 +1053,25 @@ d-appendix a:hover, d-appendix a.footnote-backlink:hover {
     grid-column: none;
   }
 }
-/* Medium–large social icons */
-.social-icons-medium a {
-  margin-right: 10px !important;
-  display: inline-block;
+/* Center and enlarge social icons */
+.social .contact-icons {
+  text-align: center !important; /* center horizontally */
+  margin-top: 15px !important; /* add some space above */
+}
+
+.social .contact-icons a {
+  display: inline-block !important;
+  margin: 0 18px !important; /* spacing between icons */
   vertical-align: middle;
 }
 
-/* Font Awesome icons */
-.social-icons-medium i,
-.social-icons-medium .fa,
-.social-icons-medium .fab,
-.social-icons-medium .fas {
-  font-size: 28px !important; /* bigger */
-  line-height: 1 !important;
-}
-
-/* Academicons (Google Scholar, SSRN, etc.) */
-.social-icons-medium .ai,
-.social-icons-medium .ai::before {
-  font-size: 28px !important; /* bigger */
+.social .contact-icons i,
+.social .contact-icons .fa,
+.social .contact-icons .fab,
+.social .contact-icons .fas,
+.social .contact-icons .ai,
+.social .contact-icons .ai::before {
+  font-size: 32px !important; /* make icons bigger */
   line-height: 1 !important;
 }
 
