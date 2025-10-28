@@ -368,7 +368,7 @@ blockquote {
   text-align: center;
 }
 .social .contact-icons {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 .social .contact-icons a i::before {
   color: var(--global-text-color);
