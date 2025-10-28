@@ -23,10 +23,10 @@ Hi! I am a Ph.D. candidate in Finance at Bocconi University. Previously, I worke
 *Research interests*: Financial Intermediation, Financial Regulation, Climate Finance.
 
 See my full CV <a href="https://majoarteaga.github.io/assets/pdf/CV_MJAG.pdf">here</a>.
+E-mail: <a href="mailto:maria.arteaga@phd.unibocconi.it">maria.arteaga@phd.unibocconi.it</a>
 
 <div class="social-icons-medium">
   {% include social.html %}
 </div>
 
-<a href="mailto:maria.arteaga@phd.unibocconi.it">E-mail: maria.arteaga@phd.unibocconi.it</a>
 
