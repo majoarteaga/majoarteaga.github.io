@@ -50,7 +50,7 @@ nav_order: 6
 <h2><strong>Work in Progress</strong></h2>
 <div class="text-column">
     <ul>
-        <li><a href="" class="paper-title">Climate Policy Risk and Cross-Border Lending (with D. Igan and K. Takahashi)</a></li>
+        <li><a href="" class="paper-title">Climate Policy Risk and Cross-Border Lending </a>(with D. Igan and K. Takahashi)</li>
     </ul>
     <p><strong>Abstract:</strong> We explore to what extent climate risk is reflected in cross-border lending decisions in the syndicated loan market. We construct a climate risk index for a wide range of countries using major newspapers' posts on Twitter. We find that when policy risk in climate news increases in a lender’s home country, their engagement in cross-border lending to firms in brown sectors increases. Our results suggest that lenders evaluate the climate policy risks at home and borrowers’ country when they allocate credit across countries. Furthermore, the effect is more pronounced for lenders who have a higher exposure to firms in brown sectors.</p>
     <p style="margin-left: 2em;">📅 <strong>Upcoming presentations:</strong> BIS (October 2023)</p>
