@@ -39,7 +39,7 @@ nav_order: 6
 
 <div class="text-column">
     <ul>
-    <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016" class="paper-title">International Climate News</a> (with R. Colacito, M.M. Croce, and B. Yang)</li>
+    <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016" class="paper-title">International Climate News</a> (with R. Colacito, M.M. Croce, and B. Yang) <em>(R&amp;R at Review of Financial Studies)</em></li>
     </ul>
     <p>Visit our webpage <a href="https://sites.google.com/view/internationalclimatenews/home">here</a>!</p>
     <p><strong>Abstract:</strong> We develop novel high-frequency indices that measure climate attention across a wide range of developed and emerging economies. By analyzing the text of over 23 million Tweets published by leading national newspapers, we find that a country experiencing more severe climate news shocks tends to see both an inflow of capital and an appreciation of its currency. In addition, brown stocks  experience large and persistent negative returns after a global climate news shock if located in highly exposed countries. A risk-sharing model in which investors price climate news shocks and trade consumption and investment goods in global markets rationalizes these findings.</p>
