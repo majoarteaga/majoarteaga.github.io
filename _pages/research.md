@@ -58,7 +58,7 @@ nav_order: 6
 
 <div class="text-column">
     <ul>
-    <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713016" class="paper-title">Crypto Frictions for Fiat Currencies</a> (with N. Borri and M.M. Croce)</li>
+    <li><a href="https://www.dropbox.com/scl/fi/tzo7tu5swrl6979ebx7se/PRIN_04_2024.pdf?rlkey=yf8d04nmj8wdastxusagz63v9&st=30rpczry&dl=0" class="paper-title">Crypto Frictions for Fiat Currencies</a> (with N. Borri and M.M. Croce)</li>
     </ul>
     <p><strong></strong> </p>
     <p style="margin-left: 2em;">📅 <strong>Upcoming presentations:</strong> MUR-PRIN Bocconi Workshop (April 2025)</p>
