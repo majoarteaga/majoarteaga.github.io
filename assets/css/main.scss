@@ -6,6 +6,9 @@
 // Dimensions
 $max-content-width: {{ site.max_width }};
 
+// Font override — use Inter throughout
+$font-family-base: 'Inter', sans-serif;
+
 @import
   "variables",
   "themes",
@@ -15,6 +18,63 @@ $max-content-width: {{ site.max_width }};
 ;
 
 
+
+/* ── Michelle-style typography ───────────────────────────────────────────── */
+
+/* Font family everywhere */
+body, p, h1, h2, h3, h4, h5, h6, .navbar, .nav-link, .post-title, article,
+td, th, li, span, div, a, blockquote {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Body text: smaller, airy, readable */
+body {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+  background-color: #ffffff;
+}
+
+/* Nav links: uppercase + spaced like Michelle's */
+.navbar-nav .nav-item .nav-link {
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* Page/post title (h1) */
+.post-title {
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.3 !important;
+}
+
+/* Section headings (h2) */
+h2 {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: #1a1a2e !important;
+}
+
+/* News table dates */
+.news th {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  white-space: nowrap;
+  color: #828282 !important;
+}
+
+/* Slightly muted paragraph text */
+p {
+  font-size: 0.875rem !important;
+  line-height: 1.75 !important;
+}
 
 /* Center and enlarge all social icons (footer + about page) */
 .social .contact-icons,
