@@ -1110,6 +1110,15 @@ p {
   line-height: 1.75 !important;
 }
 
+/* More breathing room between sections */
+.post article > * + * {
+  margin-top: 1.5rem;
+}
+
+.news {
+  margin-bottom: 0.5rem;
+}
+
 /* Center and enlarge all social icons (footer + about page) */
 .social .contact-icons,
 .social-icons-medium {
