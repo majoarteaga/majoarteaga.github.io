@@ -4,7 +4,7 @@ layout: default
 
 <!-- about.html -->
       <div class="post">
-        <header class="post-header">
+        <header class="post-header" style="border-bottom: 1px solid #dee2e6; padding-bottom: 1rem; margin-bottom: 2.5rem;">
           <h1 class="post-title">
            {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
           </h1>
@@ -36,14 +36,15 @@ layout: default
           </div>
           {%- endif %}
 
-          <div class="clearfix">
+          <div class="clearfix" style="margin-bottom: 2.5rem;">
             {{ content }}
           </div>
 
           <!-- News -->
           {% if page.news and site.announcements.enabled -%}
-            <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
+            <h2 style="margin-bottom: 1.2rem;"><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
             {%- include news.html limit=10 %}
+            <div style="margin-top: 2rem; height: 1px; background-color: #dee2e6;"></div>
           {%- endif %}
 
           <!-- Latest posts -->

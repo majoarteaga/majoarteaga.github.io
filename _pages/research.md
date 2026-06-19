@@ -9,26 +9,34 @@ nav_order: 6
 
 <style>
 .text-column {
-    max-width: 1000px; /* Adjust the width as needed */
-    margin: 0 auto;
-    text-align: justify; /* Justify text */
+    max-width: 1000px;
+    margin: 0 auto 2.5rem auto;
+    text-align: justify;
 }
 
 .text-column p {
-    text-indent: 0; /* Remove the default indentation */
+    text-indent: 0;
 }
 
 .text-column ul {
-    list-style-type: disc; /* Use bullet points */
-    padding-left: 20px; /* Adjust the padding as needed */
+    list-style-type: disc;
+    padding-left: 20px;
 }
+
 .paper-title {
     font-size: 1.4em;
     font-weight: bold;
 }
+
+.section-heading {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
 </style>
 
-<h2><strong>Working Papers</strong></h2>
+<div class="section-heading"><h2><strong>Working Papers</strong></h2></div>
 <div class="text-column">
     <ul>
         <li><a href="https://majoarteaga.github.io/assets/pdf/MJAG_JMP_2025.pdf" class="paper-title">The Rise of Green Banks in the U.S.</a> <em>(Job Market Paper)</em></li>
@@ -47,7 +55,7 @@ nav_order: 6
     <p style="margin-left: 2em;">📝 <strong>Slides:</strong> <a href="https://majoarteaga.github.io/assets/pdf/ACCY_06_NBER.pdf">here</a>. </p>
 </div>
 
-<h2><strong>Work in Progress</strong></h2>
+<div class="section-heading"><h2><strong>Work in Progress</strong></h2></div>
 <div class="text-column">
     <ul>
         <li><a href="" class="paper-title">Climate Policy Risk and Cross-Border Lending</a> (with D. Igan and K. Takahashi)</li>
@@ -65,7 +73,7 @@ nav_order: 6
     <p style="margin-left: 2em;">📝 <strong>Slides:</strong> <a href="https://www.dropbox.com/scl/fi/tzo7tu5swrl6979ebx7se/PRIN_04_2024.pdf?rlkey=yf8d04nmj8wdastxusagz63v9&st=m07p88fl&dl=0">here</a>. </p>
 </div>
 
-<h2><strong>Publications</strong></h2>
+<div class="section-heading"><h2><strong>Publications</strong></h2></div>
 
 <div class="text-column">
     <ul>
