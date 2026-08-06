@@ -39,7 +39,7 @@ nav_order: 6
 <div class="section-heading"><h2><strong>Working Papers</strong></h2></div>
 <div class="text-column">
     <ul>
-        <li><a href="https://majoarteaga.github.io/assets/pdf/MJAG_JMP_2025.pdf" class="paper-title">The Rise of Green Banks in the U.S.</a> <em>(Job Market Paper)</em></li>
+        <li><a href="https://majoarteaga.github.io/assets/pdf/MJAG_JMP_2025.pdf" class="paper-title">The Rise of Green Banks in the U.S.</a></li>
     </ul>
     <p><strong>Abstract:</strong> I examine how U.S. Green Banks (i.e., public or mission-driven lenders that recycle capital for climate-related projects) shape the flow of green finance in the U.S. I assemble project-level microdata for 11 public and quasi-public Green Banks across nine states, and present first evidence that higher borrowing costs and coordination frictions lower the likelihood of private co-financing while raising the Green Bank’s dollar contribution per project. A simple Stackelberg model, with a welfare-maximizing Green Bank that co-finances with profit-maximizing lenders, highlights leverage caps and coordination frictions as key constraints.</p>
     <p style="margin-left: 2em;">📅 <strong>Upcoming presentations:</strong> NBER Climate Finance PhD Workshop (October 2025); FINEST Workshop (October 2025)</p>
