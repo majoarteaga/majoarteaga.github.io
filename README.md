@@ -26,3 +26,16 @@ restyled with a clean look in Computer Modern Serif.
 - **News:** copy an existing `_news/announcement_*.md`, change the `date:` and the text.
 - Commit and push to `master`; the `deploy` GitHub Action builds the site into the
   `gh-pages` branch (about 2–3 minutes).
+
+## Previewing locally (optional)
+
+The GitHub build uses Ruby 3.2. On this Mac, Ruby 3.2 is installed via Homebrew (`ruby@3.2`):
+
+```bash
+export PATH=/opt/homebrew/opt/ruby@3.2/bin:$PATH
+bundle config set --local path ~/.gem-cache/majoarteaga
+bundle install
+bundle exec jekyll serve    # open http://localhost:4000
+```
+
+`.bundle/`, `Gemfile.lock`, `_site/` and `.jekyll-cache/` are git-ignored build artifacts.
