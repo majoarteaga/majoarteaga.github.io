@@ -1218,9 +1218,11 @@ img.z-depth-1 {
   border-radius: 0 !important;
 }
 
-/* Text-only social links */
-.text-links {
+/* Text-only social links, centered under the bio */
+.post article p.text-links {
   margin-top: 12px;
+  text-align: center;
+  text-align-last: center;
 }
 
 /* Footer */
