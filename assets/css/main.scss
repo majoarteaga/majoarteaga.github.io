@@ -175,6 +175,12 @@ img.z-depth-1 {
   text-align: center;
   text-align-last: center;
 }
+/* On desktop the photo floats left (30% + 1rem gap), so indent the links by the
+   same amount to center them within the bio's text column. On phones the photo
+   stacks on top and the links stay centered on the page. */
+@media (min-width: 577px) {
+  .post article p.text-links { margin-left: calc(30% + 1rem); }
+}
 
 /* Footer */
 .site-footer {
