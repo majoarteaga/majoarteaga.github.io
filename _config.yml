@@ -53,7 +53,7 @@ navbar_fixed: true
 footer_fixed: true
 
 # Dimensions
-max_width: 1000px  # Adjust this value to your desired maximum width
+max_width: 720px  # single narrow text column (clean, document-like)
 
 # TODO: add layout settings (single page vs. multi-page)
 

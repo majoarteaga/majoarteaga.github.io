@@ -24,8 +24,6 @@ See my full CV <a href="https://majoarteaga.github.io/assets/pdf/CV_MJAG.pdf">he
 
 E-mail: <a href="mailto:maria.arteaga@tamu.edu">maria.arteaga@tamu.edu</a>
 
-<div class="social-icons-medium">
-  {% include social.html %}
-</div>
+<p class="text-links">[ <a href="mailto:{{ site.email }}">email</a> &middot; <a href="https://github.com/{{ site.github_username }}">github</a> &middot; <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">linkedin</a> &middot; <a href="https://twitter.com/{{ site.twitter_username }}">twitter</a> ]</p>
 
 
