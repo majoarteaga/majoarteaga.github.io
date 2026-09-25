@@ -111,7 +111,7 @@ body.sticky-bottom-footer {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 720px;
 }
 
 .profile img {
@@ -1075,12 +1075,12 @@ body {
   background-color: #ffffff;
 }
 
-/* Nav links: uppercase + spaced like Michelle's */
+/* Nav links: plain lowercase serif */
 .navbar-nav .nav-item .nav-link {
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  text-transform: lowercase !important;
+  letter-spacing: 0 !important;
 }
 
 /* Page/post title (h1) */
@@ -1091,12 +1091,12 @@ body {
   line-height: 1.3 !important;
 }
 
-/* Section headings (h2) */
+/* Section headings (h2): bold serif, like LaTeX \\section */
 h2 {
-  font-size: 1.05rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
   color: #1a1a2e !important;
 }
 
@@ -1152,6 +1152,85 @@ p {
 .social-icons-medium .ai::before {
   font-size: 40px !important;
   line-height: 1 !important;
+}
+
+/* ── Clean, 90s-style details ─────────────────────────────────────────────── */
+/* Classic hyperlinks: blue + underlined, purple once visited */
+article a, .post a, .news a, .site-footer a, .text-links a {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
+
+article a:visited, .post a:visited, .news a:visited, .text-links a:visited {
+  color: #551A8B !important;
+}
+
+article h2 a, .post h2 a, article h2 a:visited, .post h2 a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Plain black text */
+body, p, li, td {
+  color: #111 !important;
+}
+
+/* Thin rules instead of shadows */
+nav#navbar {
+  box-shadow: none !important;
+  border-bottom: 1px solid #111 !important;
+  background: #fff !important;
+}
+
+nav#navbar .nav-link {
+  color: #111 !important;
+}
+
+nav#navbar .nav-item.active .nav-link,
+nav#navbar .nav-link:hover {
+  color: #0000EE !important;
+  text-decoration: underline !important;
+}
+
+.post-header {
+  border-bottom: 1px solid #111 !important;
+}
+
+h2 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 4px;
+}
+
+.section-heading h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+} /* research page draws its own rule */
+.news th {
+  color: #555 !important;
+  font-weight: 400 !important;
+}
+
+/* Plain photo: thin frame, no shadow, square corners */
+img.z-depth-1 {
+  box-shadow: none !important;
+  border: 1px solid #111;
+  border-radius: 0 !important;
+}
+
+/* Text-only social links */
+.text-links {
+  margin-top: 12px;
+}
+
+/* Footer */
+.site-footer {
+  max-width: 720px;
+  margin: 48px auto 32px;
+  padding: 10px 15px 0;
+  border-top: 1px solid #111;
+  font-size: 0.85rem;
+  color: #555;
 }
 
 /*# sourceMappingURL=main.css.map */
