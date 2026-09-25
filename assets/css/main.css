@@ -1233,4 +1233,12 @@ img.z-depth-1 {
   color: #555;
 }
 
+/* Justified text on the home page (bio + news), like the research page */
+.post article p,
+.news td {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 /*# sourceMappingURL=main.css.map */
