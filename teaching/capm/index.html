@@ -327,7 +327,7 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
   <p>Yahoo Finance reports a β for every stock and fund, labeled <b>Beta (5Y Monthly)</b>: 5 years of monthly returns against the S&amp;P 500, the same recipe as the ◂ cell when you choose 5 years, monthly and SPY. Open the links and compare. Small differences are normal, because each data provider makes slightly different choices: the exact months, the index with or without dividends, and whether to subtract the risk-free rate.</p>
   <div class="tablewrap"><table id="yahoo-table"></table></div>
   <p><b>Adjusted β.</b> Very high and very low βs tend to drift back toward 1 over time. So data providers such as Bloomberg report an <em>adjusted</em> β = ⅔ × raw β + ⅓ × 1.</p>
-  <label class="check"><input type="checkbox" id="ck-adj"> Use adjusted β in Steps 10 and 11</label>
+  <label class="check"><input type="checkbox" id="ck-adj"> Use adjusted β in Steps 11 and 12</label>
   <p class="tabnum" id="adj-read"></p>
 </div></section>
 
@@ -335,6 +335,26 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
 <p class="part">Part III · From β to the CAPM</p>
 
 <section class="step" id="s9"><div class="num">9</div><div>
+  <h2>From portfolio theory to the CAPM</h2>
+  <p><b>What we are doing:</b> connecting everything so far to the Portfolio Optimizer from class, where each investor finds the portfolio with the highest Sharpe ratio. The CAPM is what you get when <em>everyone</em> uses the Optimizer with the same inputs. Four steps:</p>
+  <ol class="steps">
+    <li><b>Everyone holds the tangency portfolio.</b> In the Optimizer, each investor picks the portfolio with the highest Sharpe ratio, the tangency portfolio, and then mixes it with T-bills according to their risk aversion. If everyone agrees on expected returns, volatilities and correlations, everyone picks the <em>same</em> tangency portfolio.</li>
+    <li><b>The tangency portfolio is the market.</b> Every share must be held by someone, so the portfolio everyone holds has to be the whole market, M. That is why this page measures β against SPY or the Fama–French market. The capital allocation line through M is called the <b>capital market line</b> (CML):<math display="block"><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>p</mi></msub><mo>]</mo><mo>=</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><mfrac><mrow><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>M</mi></msub><mo>]</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><msub><mi>σ</mi><mi>M</mi></msub></mfrac><mo>×</mo><msub><mi>σ</mi><mi>p</mi></msub></math></li>
+    <li><b>The risk that matters is covariance with the market.</b> An investor who holds the market does not care about a stock's own σ. What matters is how much the stock adds to the risk of the portfolio they already hold, which is its covariance with the market. In units of the market's variance, that is β, exactly the slope from Step 4:<math display="block"><msub><mi>β</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><mi>Cov</mi><mo>(</mo><msub><mi>r</mi><mi>i</mi></msub><mo>,</mo><msub><mi>r</mi><mi>M</mi></msub><mo>)</mo></mrow><mrow><mi>Var</mi><mo>(</mo><msub><mi>r</mi><mi>M</mi></msub><mo>)</mo></mrow></mfrac></math></li>
+    <li><b>Every asset pays the same reward per unit of that risk.</b> Inside the tangency portfolio, each asset must earn the same extra return per unit of covariance with the market. If one paid more, tilting toward it would raise the Sharpe ratio, so the Optimizer would not have been at its maximum. The same condition for every asset gives the <b>security market line</b> (SML), which is the CAPM:<math display="block"><mfrac><mrow><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><mrow><mi>Cov</mi><mo>(</mo><msub><mi>r</mi><mi>i</mi></msub><mo>,</mo><msub><mi>r</mi><mi>M</mi></msub><mo>)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>M</mi></msub><mo>]</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><mrow><mi>Var</mi><mo>(</mo><msub><mi>r</mi><mi>M</mi></msub><mo>)</mo></mrow></mfrac><mspace width="1em"></mspace><mo>⇒</mo><mspace width="1em"></mspace><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo><mo>=</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><msub><mi>β</mi><mi>i</mi></msub><mo>×</mo><mo>(</mo><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>M</mi></msub><mo>]</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>)</mo></math></li>
+  </ol>
+  <p>So the Optimizer and the CAPM are the same idea at two levels: one investor choosing a portfolio, and the whole market in equilibrium. It also explains α from Step 7: a positive α is a reason to tilt away from the market, because adding that asset would raise your Sharpe ratio.</p>
+  <h3 class="sub">Total risk or market risk? The same assets, two ways</h3>
+  <p>Each dot is one asset from the top of the page, placed at the return the CAPM requires for it. The risk-free rate and premium come from Step 11 (defaults: T-bill and 6%), and σ and β from the window you selected. Switch the horizontal axis and watch the dots.</p>
+  <div class="seg" role="group" aria-labelledby="lab-bview"><span class="seglabel" id="lab-bview">Horizontal axis</span>
+    <button type="button" data-bview="sigma">Total risk σ (CML)</button><button type="button" data-bview="beta">Market risk β (SML)</button></div>
+  <div class="chart" id="bridgechart" role="img" aria-label="CAPM required returns of all assets plotted against total risk or against beta."></div>
+  <p id="bridge-read"></p>
+</div></section>
+
+<hr>
+
+<section class="step" id="s10"><div class="num">10</div><div>
   <h2>Many stocks, one line</h2>
   <p>One stock only gives us a β. The CAPM makes a claim about <em>all</em> stocks together: average returns should rise in a straight line with β. The line starts at zero for β = 0 (T-bills) and passes through the market at β = 1. This is the <b>security market line</b>.</p>
   <div class="eq"><i>E</i>[<i>R</i><sub>i</sub>] = <i>β</i><sub>i</sub> × <i>E</i>[<i>R</i><sub>market</sub>]  and  <i>α</i><sub>i</sub> = 0 for every stock</div>
@@ -351,7 +371,7 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
 
 <hr>
 
-<section class="step" id="s10"><div class="num">10</div><div>
+<section class="step" id="s11"><div class="num">11</div><div>
   <h2>Gather the three CAPM inputs</h2>
   <p><b>What we are doing:</b> getting ready to compute the return investors should require from <span class="tk"></span>, per year, going forward. The CAPM formula needs three inputs:</p>
   <math display="block"><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo><mo>=</mo><munder><msub><mi>r</mi><mi>f</mi></msub><mtext>today</mtext></munder><mo>+</mo><munder><msub><mi>β</mi><mi>i</mi></msub><mtext>from the past</mtext></munder><mo>×</mo><munder><mrow><mo>(</mo><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>m</mi></msub><mo>]</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>)</mo></mrow><mtext>market risk premium</mtext></munder></math>
@@ -368,12 +388,12 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
   <div class="controls">
     <div class="ctl"><label for="sl-mrp"><span>Market risk premium you choose, per year</span><output id="o-mrp">6%</output></label><input type="range" id="sl-mrp" min="0.03" max="0.09" step="0.0025" value="0.06"></div>
   </div>
-  <p class="small">Step 11 plugs your three inputs into the formula.</p>
+  <p class="small">Step 12 plugs your three inputs into the formula.</p>
 </div></section>
 
 <hr>
 
-<section class="step" id="s11"><div class="num">11</div><div>
+<section class="step" id="s12"><div class="num">12</div><div>
   <h2>The required return</h2>
   <div class="eq"><i>E</i>[<i>r</i>] = <i>r</i><sub>f</sub> + <i>β</i> × (market risk premium)</div>
   <p class="big" id="final-eq"></p>
@@ -405,7 +425,7 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
     <li><b>Firm-specific risk washes out</b> in a diversified portfolio. Market risk does not.</li>
     <li><b>The CAPM is a statement about all stocks at once:</b> average returns should line up with β. In the data they do, but along a flatter line than the theory predicts.</li>
   </ol>
-  <p class="small" style="margin-top:1.2rem">With 5 years of monthly data, NVDA's β is <span id="nv-b-spy"></span> against SPY (with FRED's TB3MS as the risk-free rate) and <span id="nv-b-ff"></span> against the Fama–French market (with French's RF). Excel Exercise 2 uses the Fama–French data, so its β of 2.16 matches the second number. Same idea, slightly different ingredients. Data: Yahoo Finance adjusted closes; FRED series TB3MS, DTB3 and DGS10; the Fama–French market factor and risk-free rate (monthly and weekly), ten beta-sorted portfolios and the historical premium from <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French's Data Library</a>. Step 7 simulates normally distributed firm-specific shocks.</p>
+  <p class="small" style="margin-top:1.2rem">With 5 years of monthly data, NVDA's β is <span id="nv-b-spy"></span> against SPY (with FRED's TB3MS as the risk-free rate) and <span id="nv-b-ff"></span> against the Fama–French market (with French's RF). Excel Exercise 2 follows this page's default (SPY and TB3MS), so its β of 2.21 matches the first number; its last question asks for the Fama–French version too. Same idea, slightly different ingredients. Data: Yahoo Finance adjusted closes; FRED series TB3MS, DTB3 and DGS10; the Fama–French market factor and risk-free rate (monthly and weekly), ten beta-sorted portfolios and the historical premium from <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French's Data Library</a>. Step 7 simulates normally distributed firm-specific shocks.</p>
 </section>
 </div>
 
@@ -713,7 +733,64 @@ function drawGrid(){
   $('#adj-read').innerHTML=`Raw β = ${fb(raw)} → adjusted β = ⅔ × ${fb(raw)} + ⅓ = <b>${fb(adjB(raw))}</b>.`;
 }
 
-/* ---------- 9 SML ---------- */
+
+/* ---------- 9 bridge ---------- */
+st.bview='sigma'; let bAnim=null;
+function bridgeData(){
+  const rf=rfNow(), mrp=st.mrp, keys=[...ORDER,...Object.keys(TK).filter(k=>TK[k].custom)], P=PER[st.freq];
+  const pts=[]; keys.forEach(k=>{ const S=series(k,st.freq,st.win); if(!S.fit) return; const b=st.adj?adjB(S.fit.b):S.fit.b; pts.push({k,b,sig:Math.sqrt(varS(S.xr)*P),er:rf+b*mrp}); });
+  const Sm=cur(); const sigM=Math.sqrt(varS(Sm.xm)*P);
+  return {rf,mrp,pts,sigM,erM:rf+mrp};
+}
+function bridgeGeom(B,view,W,H,m){
+  const ys0=Math.min(0,B.rf,...B.pts.map(p=>p.er)), ys1=Math.max(B.erM,...B.pts.map(p=>p.er))*1.1;
+  const yst=niceStep(ys1-ys0,6), Y0=Math.floor(ys0/yst)*yst, Y1=Math.ceil(ys1/yst)*yst, ys=lin(Y0,Y1,H-m.b,m.t);
+  let X0,X1,xst,xv;
+  if(view==='sigma'){ const mx=Math.max(B.sigM,...B.pts.map(p=>p.sig))*1.05; xst=niceStep(mx,W<480?4:7); X0=0; X1=Math.ceil(mx/xst)*xst; xv=p=>p.sig; }
+  else { const lo=Math.min(0,...B.pts.map(p=>p.b)), hi=Math.max(1,...B.pts.map(p=>p.b)); xst=niceStep(hi-lo,W<480?4:7); X0=Math.floor(lo/xst)*xst-(lo<0?0:0); X1=Math.ceil(hi/xst)*xst; if(X0===lo) X0-=xst/2; xv=p=>p.b; }
+  const xs=lin(X0,X1,m.l,W-m.r);
+  return {xs,ys,X0,X1,xst,Y0,Y1,yst,xv};
+}
+const LOFF={sigma:{GLD:[9,15,'start'],BIL:[9,14,'start'],SPY:[-9,-8,'end']},beta:{BIL:[-9,-6,'end'],GLD:[9,16,'start'],KO:[-9,-8,'end'],SPY:[-9,-8,'end'],TQQQ:[-9,-8,'end']}};
+const BLAB=new Set(['SH','VIXY','BIL','GLD','KO','SPY','NVDA','TQQQ']);
+function drawBridge(fromView){
+  const B=bridgeData(), box=$('#bridgechart'), W=box.clientWidth, H=Math.round(Math.max(300,Math.min(440,W*0.66))), m={l:W<480?50:58,r:16,t:14,b:48};
+  const G=bridgeGeom(B,st.bview,W,H,m), sig=st.bview==='sigma';
+  $$('[data-bview]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.bview===st.bview));
+  const target=B.pts.map(p=>({x:G.xs(G.xv(p)),y:G.ys(p.er)})), mT={x:G.xs(sig?B.sigM:1),y:G.ys(B.erM)};
+  let start=null, mS=null;
+  if(fromView&&fromView!==st.bview){ const G0=bridgeGeom(B,fromView,W,H,m); start=B.pts.map(p=>({x:G0.xs(G0.xv(p)),y:G0.ys(p.er)})); mS={x:G0.xs(fromView==='sigma'?B.sigM:1),y:G0.ys(B.erM)}; }
+  const frame=k=>{
+    const e=1-Math.pow(1-k,3), P=start?target.map((q,i)=>({x:start[i].x+(q.x-start[i].x)*e,y:q.y})):target, M=mS?{x:mS.x+(mT.x-mS.x)*e,y:mT.y}:mT, done=k>=1;
+    let s=svgOpen(W,H)+`<defs><clipPath id="clipB"><rect x="${m.l}" y="${m.t}" width="${W-m.l-m.r}" height="${H-m.t-m.b}"/></clipPath></defs>`;
+    s+=axes(G.xs,G.ys,ticks(G.X0,G.X1,G.xst),ticks(G.Y0,G.Y1,G.yst),m,W,H,sig?pctTick:(v=>(v<0?MIN:'')+Math.abs(v).toFixed(1)),pctTick,sig?'Total risk: volatility σ per year':'Market risk: β','CAPM required return per year');
+    if(done){
+      if(sig){ const slope=B.mrp/B.sigM; s+=`<line x1="${G.xs(0)}" y1="${G.ys(B.rf)}" x2="${G.xs(G.X1)}" y2="${G.ys(B.rf+slope*G.X1)}" stroke="var(--c-mkt)" stroke-width="2.5" clip-path="url(#clipB)"/>`; const xl=Math.min(G.X1,(G.Y1*0.9-B.rf)/slope)*0.92; s+=`<text x="${G.xs(xl)-6}" y="${G.ys(B.rf+slope*xl)-8}" text-anchor="end" font-size="14" style="fill:var(--c-mkt);font-weight:700">CML</text>`;
+        const sp=B.pts.find(p=>p.k===st.tk); if(sp&&sp.b>0){ const xc=G.xs(sp.b*B.sigM); s+=`<line x1="${xc}" x2="${G.xs(sp.sig)}" y1="${G.ys(sp.er)}" y2="${G.ys(sp.er)}" stroke="var(--c-alpha)" stroke-width="1.5" stroke-dasharray="4 3"/><circle cx="${xc}" cy="${G.ys(sp.er)}" r="3.5" fill="var(--c-alpha)"/>`; } }
+      else { s+=`<line x1="${G.xs(G.X0)}" y1="${G.ys(B.rf+G.X0*B.mrp)}" x2="${G.xs(G.X1)}" y2="${G.ys(B.rf+G.X1*B.mrp)}" stroke="var(--c-mkt)" stroke-width="2.5" clip-path="url(#clipB)"/>`; const xl=G.X0+(G.X1-G.X0)*0.62; s+=`<text x="${G.xs(xl)+8}" y="${G.ys(B.rf+xl*B.mrp)+20}" font-size="14" style="fill:var(--c-mkt);font-weight:700">SML</text>`;
+        s+=`<text x="${m.l+6}" y="${G.ys(B.rf)-6}" font-size="12" style="fill:var(--muted)">r<tspan baseline-shift="sub" font-size="9">f</tspan></text>`; }
+    }
+    P.forEach((q,i)=>{ const on=B.pts[i].k===st.tk; if(!on) s+=`<circle cx="${q.x}" cy="${q.y}" r="5" fill="var(--c-sim)" stroke="var(--bg)" stroke-width="1.5"/>`; });
+    s+=`<circle cx="${M.x}" cy="${M.y}" r="6.5" fill="var(--bg)" stroke="var(--c-mkt)" stroke-width="2.5"/>`;
+    const si=B.pts.findIndex(p=>p.k===st.tk); if(si>=0) s+=`<circle cx="${P[si].x}" cy="${P[si].y}" r="7" fill="var(--c-alpha)" stroke="var(--bg)" stroke-width="2"/>`;
+    if(done){ P.forEach((q,i)=>{ const k=B.pts[i].k; if(!(BLAB.has(k)||k===st.tk)) return; const o=(LOFF[st.bview]||{})[k]||[9,-8,'start']; s+=`<text x="${q.x+o[0]}" y="${q.y+o[1]}" text-anchor="${o[2]}" font-size="12" style="fill:var(--ink);${k===st.tk?'font-weight:700':''}">${esc(k)}</text>`; });
+      s+=`<text x="${M.x+9}" y="${M.y+18}" font-size="12" style="fill:var(--c-mkt);font-weight:700">M</text>`;
+      B.pts.forEach((p,i)=>{ s+=`<circle class="bh" data-i="${i}" cx="${P[i].x}" cy="${P[i].y}" r="11" fill="transparent"/>`; }); }
+    box.innerHTML=s+'</svg>';
+    if(done) box.querySelectorAll('.bh').forEach(c=>{ const p=B.pts[+c.dataset.i]; c.addEventListener('pointerenter',()=>tipAt(box,`<b>${esc(TK[p.k].custom?p.k:TK[p.k].name)}</b><br>σ = ${pct(p.sig)} per year<br>β = ${fb(p.b)}<br>Required return: ${pct(p.er)}`,+c.getAttribute('cx'),+c.getAttribute('cy'))); c.addEventListener('pointerleave',()=>tipHide(box)); c.addEventListener('click',()=>{ st.tk=p.k; newDataset(); }); });
+  };
+  if(bAnim) cancelAnimationFrame(bAnim);
+  if(!start||reduced()) frame(1); else { const t0=performance.now(), step=t=>{ const k=Math.min(1,(t-t0)/750); frame(k); if(k<1) bAnim=requestAnimationFrame(step); }; bAnim=requestAnimationFrame(step); }
+  const sp=B.pts.find(p=>p.k===st.tk), nm=esc(cap(nameOf(st.tk)));
+  if(!sp){ $('#bridge-read').textContent=''; return; }
+  const sys=Math.abs(sp.b)*B.sigM;
+  $('#bridge-read').innerHTML=sig
+   ?`<b>The dots do not line up.</b> Only portfolios as diversified as the market sit on the CML. Single assets sit to the right of it, because part of their risk is firm-specific and earns nothing. ${nm} has σ = <b>${pct(sp.sig)}</b> a year, but only |β| × σ<sub>M</sub> = ${fb(Math.abs(sp.b))} × ${pct(B.sigM)} = <b>${pct(sys)}</b> of that is market risk.${sp.b>0?' The dashed segment is the unpriced, firm-specific part: a mix of M and T-bills earns the same required return with only the market part of the risk.':''} Compare gold and Coca-Cola, which are volatile but ask for little, with the market M.`
+   :`<b>Now every dot sits exactly on one line, the SML.</b> The required return depends on β alone: ${nm} needs ${pct(B.rf,2)} ${sp.b<0?MIN:'+'} ${Math.abs(sp.b).toFixed(2)} × ${pct(B.mrp,2)} = <b>${pct(sp.er)}</b>. Total volatility no longer matters, because an investor who holds the market can diversify the rest away. Note that the dots sit on the line by construction: they are the CAPM's <em>predictions</em>. Step 10 checks whether realized returns follow the line.`;
+}
+$$('[data-bview]').forEach(b=>b.addEventListener('click',()=>{ const from=st.bview; if(from===b.dataset.bview) return; st.bview=b.dataset.bview; drawBridge(from); }));
+
+/* ---------- 10 SML ---------- */
 const DEC=D.deciles.map((d,i)=>({...d,i})), DMKT=D.decile_mkt, decFit=ols(DEC.map(d=>d.beta),DEC.map(d=>d.avg));
 const decName=i=>i===0?'Lowest-β 10%':i===9?'Highest-β 10%':`β group ${i+1} of 10`;
 function drawSML(){
@@ -741,6 +818,7 @@ const fmtDate=d=>MONTHS[+d.slice(5,7)-1]+' '+(+d.slice(8,10))+', '+d.slice(0,4);
 function rfNow(){ return st.rf==='t10'?D.now.t10/100:RF.now.rate/100; }
 function betaUsed(t){ const S=series(t,st.freq,st.win); if(!S.fit) return null; return st.adj?adjB(S.fit.b):S.fit.b; }
 function drawFinal(){
+  if(typeof drawBridge==='function') setTimeout(()=>drawBridge(),0);
   const tb=$('[data-rf="tb"]'), t10=$('[data-rf="t10"]');
   tb.textContent=`3-month T-bill: ${RF.now.rate.toFixed(2)}%`; t10.textContent=`10-year Treasury: ${D.now.t10.toFixed(2)}%`;
   $$('[data-rf]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rf===st.rf));
@@ -804,7 +882,7 @@ $('#up-go').addEventListener('click',async()=>{
       const ag=aggregate(P.rows), mm=new Map(ag.monthly.keys.map((k,i)=>[k,ag.monthly.adj[i]])), wm=new Map(ag.weekly.keys.map((k,i)=>[k,ag.weekly.adj[i]]));
       const last=P.rows[P.rows.length-1];
       RF={name:`your file${fname?' ('+fname+')':''}`,data:{monthly:mm,weekly:wm},now:{rate:last.adj,date:last.d}};
-      status(`Loaded a risk-free rate with ${P.rows.length.toLocaleString()} values, ${span}. The latest value, ${last.adj}%, is now the T-bill option in Step 10.`,true);
+      status(`Loaded a risk-free rate with ${P.rows.length.toLocaleString()} values, ${span}. The latest value, ${last.adj}%, is now the T-bill option in Step 11.`,true);
     } else {
       let name=($('#up-name').value||fname.replace(/\.[a-z]+$/i,'')||'MINE').toUpperCase().replace(/[^A-Z0-9.^-]/g,'').slice(0,12)||'MINE';
       const data=aggregate(P.rows);
