@@ -99,6 +99,10 @@ thead th{border-bottom:1px solid var(--rule);font-weight:700}
 @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
 </style>
 <style>
+math{font-family:"CMU Serif","Latin Modern Math","STIX Two Math","Cambria Math",serif;font-size:1.08em}
+math[display="block"]{margin:.7rem 0 .9rem;overflow-x:auto;overflow-y:hidden;padding-block:.15rem}
+h3.sub{font-size:1.08rem;margin:1.3rem 0 .4rem}
+ol.steps{padding-left:1.3rem;margin:.3rem 0 1rem} ol.steps li{margin:.35rem 0}
 .picker{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .5rem}
 .pgroup{display:grid;grid-template-columns:6.5rem 1fr;gap:.2rem .6rem;align-items:baseline;margin:.35rem 0 0}
 .pgroup>span{font-size:.9rem;color:var(--ink2)}
@@ -118,7 +122,8 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .warn h3{margin:0 0 .3rem;font-size:1rem;color:var(--c-alpha)}
 .warn p{margin:.2rem 0}
 .xl{font-style:italic;white-space:nowrap}
-td.hl{background:var(--panel);font-weight:700}
+table.tt th,table.tt td{text-align:left;vertical-align:top} table.tt th:last-child,table.tt td:last-child{text-align:right}
+td.hl,tr.hlrow td{background:var(--panel);font-weight:700}
 tr.split td{color:var(--c-alpha);font-weight:700}
 .big{font-size:1.35rem;text-align:center;margin:1rem 0 .4rem;font-variant-numeric:tabular-nums}
 .legend{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font-size:.9rem;color:var(--ink2);margin:.2rem 0}
@@ -243,6 +248,16 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
   <p>Excel's <span class="xl">=SLOPE(stock excess, market excess)</span> and <span class="xl">=INTERCEPT(…)</span> pick the one line with the smallest total squared miss. That is all a regression is.</p>
   <div class="eq"><i>R</i><sub>stock</sub> = <span style="color:var(--c-alpha)"><i>α</i></span> + <span style="color:var(--c-mkt)"><i>β</i></span> × <i>R</i><sub>market</sub> + <span style="color:var(--c-eps)"><i>ε</i></span></div>
   <div class="readout tabnum" id="fit-read"></div>
+  <p id="yahoo-line" class="small"></p>
+  <h3 class="sub">Where β and α come from</h3>
+  <p>The best-fitting line has an exact formula, so nobody really has to search for it. Write <i>R</i><sub>i</sub> for the stock's excess return and <i>R</i><sub>m</sub> for the market's, in each of the <i>n</i> <span class="unit"></span>s, and put a bar on top for an average. Then:</p>
+  <math display="block"><mi>β</mi><mo>=</mo><mfrac><mrow><mi>Cov</mi><mo>(</mo><msub><mi>R</mi><mi>i</mi></msub><mo>,</mo><msub><mi>R</mi><mi>m</mi></msub><mo>)</mo></mrow><mrow><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>m</mi></msub><mo>)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo>(</mo><msub><mi>R</mi><mrow><mi>m</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>−</mo><msub><mover accent="true"><mi>R</mi><mo>‾</mo></mover><mi>m</mi></msub><mo>)</mo><mo>(</mo><msub><mi>R</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>−</mo><msub><mover accent="true"><mi>R</mi><mo>‾</mo></mover><mi>i</mi></msub><mo>)</mo></mrow><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msup><mrow><mo>(</mo><msub><mi>R</mi><mrow><mi>m</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>−</mo><msub><mover accent="true"><mi>R</mi><mo>‾</mo></mover><mi>m</mi></msub><mo>)</mo></mrow><mn>2</mn></msup></mrow></mfrac></math>
+  <p>β is the covariance of the stock with the market, divided by the variance of the market. In words: in the <span class="unit"></span>s when the market was above its average, how far above its own average was the stock, relative to how far the market moved? Once β is known, the line must pass through the point of averages, which gives α:</p>
+  <math display="block"><mi>α</mi><mo>=</mo><msub><mover accent="true"><mi>R</mi><mo>‾</mo></mover><mi>i</mi></msub><mo>−</mo><mi>β</mi><mo>×</mo><msub><mover accent="true"><mi>R</mi><mo>‾</mo></mover><mi>m</mi></msub></math>
+  <p>And R², the share of the stock's variance explained by the market:</p>
+  <math display="block"><msup><mi>R</mi><mn>2</mn></msup><mo>=</mo><mfrac><mrow><msup><mi>β</mi><mn>2</mn></msup><mo>×</mo><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>m</mi></msub><mo>)</mo></mrow><mrow><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>i</mi></msub><mo>)</mo></mrow></mfrac></math>
+  <p>With the data above:</p>
+  <div class="tablewrap"><table id="calc-table" class="tt"></table></div>
   <p><b>β, the slope</b>, says how much the stock moves with the market. <b>α, the intercept</b>, is where the line crosses the vertical axis: the stock's average excess return in a <span class="unit"></span> when the market did exactly zero. <b>ε, the miss</b>, is each dot's distance from the line: the firm-specific part of that <span class="unit"></span>, such as earnings surprises, product news, or lawsuits.</p>
   <p><b>How sure are we about β?</b> A different stretch of history would give a somewhat different line. The reasonable range above is wide for volatile stocks and short windows.</p>
 </div></section>
@@ -265,14 +280,18 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
 
 <section class="step" id="s6"><div class="num">6</div><div>
   <h2>Two kinds of risk</h2>
-  <p>Some of the stock's ups and downs come from the market (the β part). The rest are firm-specific (the ε part). R² is the market's share.</p>
-  <p>Now suppose you hold many stocks like this one: same β, but each with its <em>own</em> unrelated firm news. Good news at one firm offsets bad news at another. The market part does not cancel, because every stock feels the same market.</p>
+  <p><b>What we are doing:</b> using the line from Step 4 to split the stock's risk into two pieces. Risk here means <em>variance</em>, the average squared distance of returns from their mean. Because every return is market part + α + miss, and the misses are unrelated to the market, the variances add up:</p>
+  <math display="block"><munder><mrow><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>i</mi></msub><mo>)</mo></mrow><mtext>total risk</mtext></munder><mo>=</mo><munder><mrow><msup><mi>β</mi><mn>2</mn></msup><mo>×</mo><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>m</mi></msub><mo>)</mo></mrow><mtext>market risk</mtext></munder><mo>+</mo><munder><mrow><mi>Var</mi><mo>(</mo><mi>ε</mi><mo>)</mo></mrow><mtext>firm-specific risk</mtext></munder></math>
+  <p>Step by step, for <span class="tk"></span> (all numbers per <span class="unit"></span>):</p>
+  <ol class="steps tabnum" id="risk-steps"></ol>
+  <p><b>Now diversify.</b> Suppose you split your money equally across <i>N</i> stocks like this one: same β, but each with its <em>own</em> unrelated firm news. Every stock feels the same market, so the market part stays. The firm-specific parts partly cancel: good news at one firm offsets bad news at another, and their variance shrinks by a factor of <i>N</i>:</p>
+  <math display="block"><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>p</mi></msub><mo>)</mo><mo>=</mo><msup><mi>β</mi><mn>2</mn></msup><mo>×</mo><mi>Var</mi><mo>(</mo><msub><mi>R</mi><mi>m</mi></msub><mo>)</mo><mo>+</mo><mfrac><mrow><mi>Var</mi><mo>(</mo><mi>ε</mi><mo>)</mo></mrow><mi>N</mi></mfrac></math>
   <div class="controls">
-    <div class="ctl"><label for="sl-n"><span>Stocks like <span class="tk"></span> in your portfolio</span><output id="o-n">1</output></label><input type="range" id="sl-n" min="1" max="100" step="1" value="1"></div>
+    <div class="ctl"><label for="sl-n"><span>Number of stocks like <span class="tk"></span>, N</span><output id="o-n">1</output></label><input type="range" id="sl-n" min="1" max="100" step="1" value="1"></div>
   </div>
   <div class="chart" id="riskbar" role="img" aria-label="Share of portfolio risk that is market risk versus firm-specific risk."></div>
   <div class="readout tabnum" id="risk-read"></div>
-  <p><b>Why this matters for the CAPM.</b> Firm-specific risk is easy to get rid of, so investors are not paid for bearing it. Market risk cannot be diversified away, so that is the risk that has to earn a reward. β measures how much market risk a stock adds.</p>
+  <p><b>Why this matters for the CAPM.</b> Firm-specific risk is easy to get rid of, so investors are not paid for bearing it. Market risk cannot be diversified away, so that is the risk that has to earn a reward. β measures how much market risk a stock adds, which is why β is the only input in the CAPM.</p>
 </div></section>
 
 <hr>
@@ -304,6 +323,9 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
   </div>
   <div class="tablewrap"><table id="grid-table"></table></div>
   <p id="grid-note"></p>
+  <h3 class="sub">Compare with the β that Yahoo publishes</h3>
+  <p>Yahoo Finance reports a β for every stock and fund, labeled <b>Beta (5Y Monthly)</b>: 5 years of monthly returns against the S&amp;P 500, the same recipe as the ◂ cell when you choose 5 years, monthly and SPY. Open the links and compare. Small differences are normal, because each data provider makes slightly different choices: the exact months, the index with or without dividends, and whether to subtract the risk-free rate.</p>
+  <div class="tablewrap"><table id="yahoo-table"></table></div>
   <p><b>Adjusted β.</b> Very high and very low βs tend to drift back toward 1 over time. So data providers such as Bloomberg report an <em>adjusted</em> β = ⅔ × raw β + ⅓ × 1.</p>
   <label class="check"><input type="checkbox" id="ck-adj"> Use adjusted β in Steps 10 and 11</label>
   <p class="tabnum" id="adj-read"></p>
@@ -330,15 +352,23 @@ input[type=file]{font-family:inherit;font-size:.9rem;color:var(--ink);max-width:
 <hr>
 
 <section class="step" id="s10"><div class="num">10</div><div>
-  <h2>Choose today's risk-free rate and market risk premium</h2>
-  <p>β came from the past. The other two inputs should describe <em>today</em>, because we want the return investors require going forward.</p>
+  <h2>Gather the three CAPM inputs</h2>
+  <p><b>What we are doing:</b> getting ready to compute the return investors should require from <span class="tk"></span>, per year, going forward. The CAPM formula needs three inputs:</p>
+  <math display="block"><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo><mo>=</mo><munder><msub><mi>r</mi><mi>f</mi></msub><mtext>today</mtext></munder><mo>+</mo><munder><msub><mi>β</mi><mi>i</mi></msub><mtext>from the past</mtext></munder><mo>×</mo><munder><mrow><mo>(</mo><mi>E</mi><mo>[</mo><msub><mi>r</mi><mi>m</mi></msub><mo>]</mo><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>)</mo></mrow><mtext>market risk premium</mtext></munder></math>
+  <div class="tablewrap"><table id="inputs-table" class="tt"></table></div>
+  <p>β comes from the past because we cannot observe the future co-movement, so we use history as our best guess. It has no units, so a β estimated from <span class="unit"></span>ly data can be used directly with annual rates. The other two inputs describe <em>today</em>, because we want the return investors require from now on.</p>
+  <h3 class="sub">Input 1: the risk-free rate today</h3>
+  <p>Take the current yield on a U.S. Treasury, as an annual rate. Nothing to convert: FRED already quotes it per year, and the answer we want is per year.</p>
   <div class="seg" role="group" aria-labelledby="lab-rf"><span class="seglabel" id="lab-rf">Risk-free rate</span>
     <button type="button" data-rf="tb"></button><button type="button" data-rf="t10"></button></div>
   <p class="small" id="rf-now-note"></p>
+  <h3 class="sub">Input 2: the market risk premium</h3>
+  <p>This is how much more than the risk-free rate investors expect to earn from the whole stock market in a typical year: <i>E</i>[<i>r</i><sub>m</sub>] − <i>r</i><sub>f</sub>. It cannot be looked up; it has to be estimated. Three common ways:</p>
+  <ol class="steps" id="mrp-ways"></ol>
   <div class="controls">
-    <div class="ctl"><label for="sl-mrp"><span>Market risk premium, per year</span><output id="o-mrp">6%</output></label><input type="range" id="sl-mrp" min="0.03" max="0.09" step="0.0025" value="0.06"></div>
+    <div class="ctl"><label for="sl-mrp"><span>Market risk premium you choose, per year</span><output id="o-mrp">6%</output></label><input type="range" id="sl-mrp" min="0.03" max="0.09" step="0.0025" value="0.06"></div>
   </div>
-  <p class="small" id="mrp-note"></p>
+  <p class="small">Step 11 plugs your three inputs into the formula.</p>
 </div></section>
 
 <hr>
@@ -402,6 +432,8 @@ function axes(xs,ys,xt,yt,m,W,H,fx,fy,xlab,ylab){ let s='';
   return s; }
 const pctTick=v=>v===0?'0%':(v<0?MIN:'')+(+(Math.abs(v)*100).toFixed(1))+'%';
 const fb=v=>(v<0&&Math.abs(v)>=0.005?MIN:'')+Math.abs(v).toFixed(2);
+const num=v=>(v<0?MIN:'')+Math.abs(v).toPrecision(3);
+const yahooURL=t=>{ const s=encodeURIComponent(String(t).replace('*','')); return TK[t]&&TK[t].fund?`https://finance.yahoo.com/quote/${s}/`:`https://finance.yahoo.com/quote/${s}/key-statistics/`; };
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 const PER={monthly:12,weekly:52}, UNIT={monthly:'month',weekly:'week'};
@@ -569,6 +601,18 @@ function drawFitRead(){
   $('#fit-read').innerHTML=`<p><b>β = ${fb(F.b)}.</b> In a ${u} when the market's excess return is 1% higher, ${esc(nameOf(st.tk))}'s is on average ${fb(F.b)}% higher. Reasonable range: ${fb((F.b-2*F.se))} to ${fb((F.b+2*F.se))}.</p>
    <p><b>α = ${pct(F.a,2)}</b> per ${u}, about ${pct(F.a*P,1)} per year.</p>
    <p><b>R² = ${Math.round(F.r2*100)}%</b>: the share of ${esc(st.tk)}'s ups and downs that the market explains.</p>`;
+  const mi=mean(S.xr), mm=mean(S.xm), n=S.xm.length; let cov=0; for(let i=0;i<n;i++) cov+=(S.xr[i]-mi)*(S.xm[i]-mm); cov/=(n-1);
+  const vm=varS(S.xm), vi=varS(S.xr), tk=esc(st.tk), mk=esc(MKT.name);
+  const row=(q,f,x,v)=>`<tr><td>${q}</td><td>${f}</td><td class="xl" style="white-space:nowrap">${x}</td><td>${v}</td></tr>`;
+  $('#calc-table').innerHTML='<thead><tr><th scope="col">Quantity</th><th scope="col">Formula</th><th scope="col">Excel</th><th scope="col">Value</th></tr></thead><tbody>'+
+    row(`Average ${tk} excess return`,`average of <i>R</i><sub>i</sub>`,'=AVERAGE(stock)',pct(mi,2))+
+    row(`Average ${mk} excess return`,`average of <i>R</i><sub>m</sub>`,'=AVERAGE(market)',pct(mm,2))+
+    row('Covariance',`Cov(<i>R</i><sub>i</sub>, <i>R</i><sub>m</sub>)`,'=COVARIANCE.S(stock, market)',num(cov))+
+    row('Variance of the market',`Var(<i>R</i><sub>m</sub>)`,'=VAR.S(market)',num(vm))+
+    `<tr><td><b>β</b></td><td>Cov ÷ Var</td><td class="xl">=SLOPE(stock, market)</td><td>${num(cov)} ÷ ${num(vm)} = <b>${fb(F.b)}</b></td></tr>`+
+    `<tr><td><b>α</b> per ${UNIT[st.freq]}</td><td>avg <i>R</i><sub>i</sub> − β × avg <i>R</i><sub>m</sub></td><td class="xl">=INTERCEPT(stock, market)</td><td>${pct(mi,3)} ${F.b<0?'+':MIN} ${Math.abs(F.b).toFixed(3)} × ${pct(mm,3)} = <b>${pct(F.a,2)}</b></td></tr>`+
+    `<tr><td><b>R²</b></td><td>β² × Var(<i>R</i><sub>m</sub>) ÷ Var(<i>R</i><sub>i</sub>)</td><td class="xl">=RSQ(stock, market)</td><td>${num(F.b*F.b*vm)} ÷ ${num(vi)} = <b>${Math.round(F.r2*100)}%</b></td></tr></tbody>`;
+  $('#yahoo-line').innerHTML=TK[st.tk].custom?'':`Compare: Yahoo Finance publishes its own β for ${tk}. <a href="${yahooURL(st.tk)}">Open ${tk} on Yahoo</a> and look for “Beta (5Y Monthly)”. Step 8 lists all assets side by side.`;
 }
 function renderFit(){ updateFitText(); drawScatter(); }
 $('#sl-b').addEventListener('input',e=>{ st.b=+e.target.value; renderFit(); });
@@ -608,12 +652,18 @@ function drawWaterfall(){
 
 /* ---------- 6 risk ---------- */
 function drawRisk(){
-  const S=cur(), F=S.fit, N=+$('#sl-n').value, P=PER[st.freq]; $('#o-n').textContent=N;
-  const res=S.xr.map((v,i)=>v-F.a-F.b*S.xm[i]), sys=F.b**2*varS(S.xm), id=varS(res), iv=id/N, tot=sys+iv, sh=sys/tot;
+  const S=cur(), F=S.fit, N=+$('#sl-n').value, P=PER[st.freq], u=UNIT[st.freq]; $('#o-n').textContent=N;
+  const res=S.xr.map((v,i)=>v-F.a-F.b*S.xm[i]), vm=varS(S.xm), sys=F.b**2*vm, id=varS(res), vi=varS(S.xr), iv=id/N, tot=sys+iv, sh=sys/tot;
+  const a=v=>pct(Math.sqrt(v*P),1);
+  $('#risk-steps').innerHTML=`<li>Variance of the market's excess return: Var(<i>R</i><sub>m</sub>) = <b>${num(vm)}</b>. In Excel: <span class="xl">=VAR.S(market)</span>.</li>
+   <li>Market risk: β² × Var(<i>R</i><sub>m</sub>) = ${fb(F.b)}² × ${num(vm)} = <b>${num(sys)}</b>.</li>
+   <li>Firm-specific risk: the variance of the misses ε from Step 4, Var(ε) = <b>${num(id)}</b>. In Excel, compute each miss as stock − (α + β × market), then <span class="xl">=VAR.S(misses)</span>.</li>
+   <li>Add them: ${num(sys)} + ${num(id)} = <b>${num(sys+id)}</b>. Check: the variance of ${esc(st.tk)}'s own excess return, <span class="xl">=VAR.S(stock)</span>, is also ${num(vi)}.</li>
+   <li>The market's share: ${num(sys)} ÷ ${num(vi)} = <b>${pct(sys/vi,0)}</b>. This is exactly the R² from Step 4.</li>
+   <li>In more familiar units, volatility per year = √(variance × ${P}): total <b>${a(vi)}</b>, market <b>${a(sys)}</b>, firm-specific <b>${a(id)}</b>. Volatilities do not add up; variances do.</li>`;
   const box=$('#riskbar'), W=box.clientWidth, H=74, x1=W*sh;
   box.innerHTML=svgOpen(W,H)+`<rect x="0" y="8" width="${Math.max(0,x1-1)}" height="34" fill="var(--c-mkt)"/><rect x="${x1+1}" y="8" width="${Math.max(0,W-x1-1)}" height="34" fill="var(--c-eps)"/><text x="0" y="62" font-size="14" style="fill:var(--ink)">Market risk ${Math.round(sh*100)}%</text><text x="${W}" y="62" text-anchor="end" font-size="14" style="fill:var(--ink)">Firm-specific ${Math.round((1-sh)*100)}%</text></svg>`;
-  const a=v=>pct(Math.sqrt(v*P),1);
-  $('#risk-read').innerHTML=`<p><span class="key" style="background:var(--c-mkt)"></span>Market risk: ${a(sys)} per year. It stays put no matter how many stocks you hold.</p><p><span class="key" style="background:var(--c-eps)"></span>Firm-specific risk: ${a(iv)} per year${N>1?` (down from ${a(id)} with one stock)`:''}.</p><p>Total volatility: <b>${a(tot)}</b> per year${N===1?' (the stock on its own)':''}.</p>`;
+  $('#risk-read').innerHTML=`<p>With <i>N</i> = ${N}: Var(<i>R</i><sub>p</sub>) = ${num(sys)} + ${num(id)} ÷ ${N} = <b>${num(tot)}</b> per ${u}.</p><p><span class="key" style="background:var(--c-mkt)"></span>Market risk: ${a(sys)} per year. It stays put no matter how many stocks you hold.</p><p><span class="key" style="background:var(--c-eps)"></span>Firm-specific risk: ${a(iv)} per year${N>1?` (down from ${a(id)} with one stock)`:''}.</p><p>Total volatility: <b>${a(tot)}</b> per year${N===1?' (the stock on its own)':''}.</p>`;
 }
 $('#sl-n').addEventListener('input',drawRisk);
 
@@ -656,6 +706,9 @@ function drawGrid(){
   $('#grid-table').innerHTML=h+'</tbody>';
   const lo=Math.min(...all), hi=Math.max(...all);
   $('#grid-note').innerHTML=`Across these reasonable choices, ${esc(nameOf(tk))}'s β ranges from <b>${fb(lo)}</b> to <b>${fb(hi)}</b>. The most common choice in practice is 5 years of monthly returns. ◂ marks your current choice.${TK[tk].custom?' * means your data was shorter than the window.':''}`;
+  let yh=`<thead><tr><th scope="col">Asset</th><th scope="col">β on this page<br><span style="font-weight:400">(5 years, monthly, vs ${esc(MKT.name)})</span></th><th scope="col">Yahoo's published β</th></tr></thead><tbody>`;
+  [...ORDER,...Object.keys(TK).filter(k=>TK[k].custom)].forEach(k=>{ const S=series(k,'monthly',5); if(!S.fit) return; yh+=`<tr${k===st.tk?' class="hlrow"':''}><td>${esc(TK[k].custom?k:TK[k].name)}${TK[k].custom||TK[k].name.includes('('+k+')')?'':` (${esc(k)})`}</td><td>${fb(S.fit.b)}</td><td style="text-align:left"><a href="${yahooURL(k)}">Beta (5Y Monthly) on Yahoo</a></td></tr>`; });
+  $('#yahoo-table').innerHTML=yh+'</tbody>';
   const raw=cur().fit.b;
   $('#adj-read').innerHTML=`Raw β = ${fb(raw)} → adjusted β = ⅔ × ${fb(raw)} + ⅓ = <b>${fb(adjB(raw))}</b>.`;
 }
@@ -693,8 +746,15 @@ function drawFinal(){
   $$('[data-rf]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rf===st.rf));
   $('#rf-now-note').innerHTML=`Latest values: T-bill ${RF.now===BUILTIN.rf.now?'(FRED <a href="https://fred.stlouisfed.org/series/DTB3">DTB3</a>)':`(your file)`} on ${fmtDate(RF.now.date)}; 10-year (FRED <a href="https://fred.stlouisfed.org/series/DGS10">DGS10</a>) on ${fmtDate(D.now.t10_date)}. The T-bill matches the textbook CAPM. For valuing a company whose cash flows last decades, many analysts use the 10-year Treasury instead.`;
   $('#o-mrp').textContent=(st.mrp*100).toFixed(2).replace(/\.?0+$/,'')+'%';
-  $('#mrp-note').innerHTML=`This is the hardest input to pin down. From 1926 to 2026 the U.S. market beat T-bills by <b>${pct(D.hist_mrp)}</b> a year on average (Kenneth French's data). Many practitioners use a lower, forward-looking number, often between 4% and 6%. Excel Exercise 2 uses 6%.`;
   const F=cur().fit, b=st.adj?adjB(F.b):F.b, rf=rfNow(), er=rf+b*st.mrp, blo=(st.adj?adjB:(v=>v))(F.b-2*F.se), bhi=(st.adj?adjB:(v=>v))(F.b+2*F.se);
+  const S0=cur(), u0=UNIT[st.freq];
+  $('#inputs-table').innerHTML=`<thead><tr><th scope="col">Input</th><th scope="col">What it is</th><th scope="col">Where it comes from</th><th scope="col">Your value</th></tr></thead><tbody>
+    <tr><td><i>β</i></td><td>How strongly ${esc(st.tk)} moves with the market</td><td>Step 4 regression on past data${st.adj?' (adjusted, Step 8)':''}</td><td><b>${fb(b)}</b></td></tr>
+    <tr><td><i>r</i><sub>f</sub></td><td>Return on a riskless investment, per year</td><td>Today's Treasury yield (Input 1)</td><td><b>${pct(rf,2)}</b></td></tr>
+    <tr><td><i>E</i>[<i>r</i><sub>m</sub>] − <i>r</i><sub>f</sub></td><td>Extra return expected from the whole market, per year</td><td>An estimate (Input 2)</td><td><b>${pct(st.mrp,2)}</b></td></tr></tbody>`;
+  $('#mrp-ways').innerHTML=`<li><b>Long-run history.</b> From 1926 to 2026 the U.S. market beat T-bills by <b>${pct(D.hist_mrp)}</b> a year on average (Kenneth French's data). A long history averages out luck, but the world has changed a lot since 1926.</li>
+   <li><b>Recent history.</b> In the ${S0.dates.length} ${u0}s you selected, the market's excess return averaged <b>${pct(mean(S0.xm)*PER[st.freq])}</b> a year (average ${u0}ly excess return × ${PER[st.freq]}). Short windows are very noisy: switch between 2, 5 and 10 years at the top and watch this number jump.</li>
+   <li><b>Forward-looking estimates.</b> Many practitioners use a number between 4% and 6%, based on current stock prices and on surveys of investors and CFOs. Excel Exercise 2 uses 6%.</li>`;
   $('#final-eq').innerHTML=`${pct(rf,2)} ${b<0?MIN:'+'} ${Math.abs(b).toFixed(2)} × ${pct(st.mrp,2)} = <b>${pct(er,1)}</b> per year`;
   $('#final-range').innerHTML=`Using the reasonable range for β (${fb(blo)} to ${fb(bhi)}): <b>${pct(rf+blo*st.mrp,1)}</b> to <b>${pct(rf+bhi*st.mrp,1)}</b>.${st.adj?' (Adjusted β.)':''}`;
   $('#final-meaning').innerHTML=TK[st.tk].fund?`<b>What this number is for.</b> It is the return the CAPM says investors should expect from holding ${esc(nameOf(st.tk))}, given its β.${er<rf?` It is below the risk-free rate because this fund tends to gain when the market falls. That protection is valuable, so investors accept a lower return for it, much like paying for insurance.`:''} If you expect it to earn more than this, the CAPM says it is a good buy (positive α). If you expect less, it is overpriced.`:`<b>What this number is for.</b> Investors should expect about ${pct(er,1)} a year to be willing to hold ${esc(nameOf(st.tk))}. An analyst uses it as the <em>discount rate</em> for the company's future cash flows to shareholders, called the cost of equity. If you expect ${esc(st.tk)} to return more than this, the CAPM says it is a good buy (positive α). If you expect less, it is overpriced.`;
